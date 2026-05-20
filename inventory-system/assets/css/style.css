@@ -1,0 +1,485 @@
+/* =====================
+    BASE RESET
+===================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* =====================
+    DARK DESIGN SYSTEM TOKENS
+===================== */
+:root{
+    --primary: #3f3f46; 
+    --bg: #09090b;      
+    --sidebar: #0f0f11;  
+    --card: #121214;    
+    --border: #1f1f23;  
+    --text-main: #fafafa;
+    --text-muted: #71717a;
+    --hover: #27272a;
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+    --radius: 8px;
+    --sidebar-width: 260px;
+}
+
+body{
+    background: var(--bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* =====================
+    APP LAYOUT SYSTEM
+===================== */
+.app{
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =====================
+    SIDEBAR (MATCHING image_a02695.png)
+===================== */
+.sidebar{
+    width: var(--sidebar-width);
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar h2{
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+}
+
+.sidebar .section-title{
+    font-size: 9px;
+    color: var(--text-muted);
+    margin: 15px 0 8px 5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.sidebar a{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    margin-bottom: 2px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.sidebar a:hover{
+    background: var(--hover);
+    color: var(--text-main);
+}
+
+/* ACTIVE MENU - Neutral Grey Background */
+.sidebar a.active{
+    background: #2d2d30;
+    color: #fff;
+    font-weight: 500;
+}
+
+.sidebar-footer{
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.sidebar-footer a{
+    color: var(--text-muted);
+}
+
+.sidebar-footer a:hover{
+    background: #451a1a;
+    color: #f87171;
+}
+
+/* =====================
+    MAIN CONTENT AREA
+===================== */
+.main{
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 40px;
+    width: calc(100% - var(--sidebar-width));
+}
+
+/* =====================
+    PAGE HEADER
+===================== */
+.header{
+    background: var(--card);
+    padding: 20px 25px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 30px;
+}
+
+.header h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.header p{
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* =====================
+    DASHBOARD GRID / CARDS
+===================== */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.card{
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+}
+
+.card:hover{
+    border-color: var(--primary);
+}
+
+.card h3{
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p{
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 8px;
+    color: var(--text-main);
+}
+
+/* =====================
+    TABLE SYSTEM
+===================== */
+.table-container{
+    margin-top: 30px;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th{
+    background: #161618;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+table td{
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-main);
+}
+
+table tr:hover{
+    background: rgba(255,255,255,0.01);
+}
+
+/* =====================
+    FORM SYSTEM
+===================== */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, select, textarea{
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #050505;
+    color: #fff;
+    font-size: 13px;
+    outline: none;
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus{
+    border-color: var(--primary);
+}
+
+label{
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* =====================
+    ACTION BUTTONS & CONTAINER (image_9fc47e.png)
+===================== */
+.action-container {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.button-container {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Base Button Style */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-block; /* Changed from block para hindi mag-force 100% width sa table */
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Full Width for Forms ONLY */
+form .btn, .button-container .btn {
+    display: block;
+    width: 100%;
+}
+
+/* Small Buttons for Tables */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+    width: auto;
+}
+
+/* Neutral Primary (Steel Grey / Charcoal) */
+.btn-primary, .btn-edit {
+    background: #27272a; 
+    color: #ffffff;
+    border: 1px solid #3f3f46;
+}
+
+.btn-primary:hover, .btn-edit:hover {
+    background: #3f3f46;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active, .btn-edit:active {
+    transform: translateY(0);
+    background: #18181b;
+}
+
+/* Danger / Archive Button Style */
+.btn-archive {
+    background: transparent;
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.btn-archive:hover {
+    background: rgba(248, 113, 113, 0.1);
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-secondary{
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover{
+    background: var(--hover);
+    color: #fff;
+}
+
+/* =====================
+    UTILITY CLASSES
+===================== */
+.text-muted{ color: var(--text-muted); }
+.rounded{ border-radius: var(--radius); }
+.dashboard-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; }
+.btn-save:hover {
+    background: rgba(255, 255, 255, 0.15) !important; /* Slightly lighter gray on hover */
+    transform: translateY(-1px); /* Konting angat effect */
+}
+/* Table Layout Fix */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.05);
+    color: #717171;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.9rem;
+    color: #efefef;
+    vertical-align: middle;
+}
+
+/* Status Badge */
+.status-active {
+    color: #34c759;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Button Archive Style (Screenshot 40 Style) */
+.btn-archive {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30 !important;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-archive:hover {
+    background: #ff3b30;
+    color: #fff !important;
+}
+/* Base style para sa lahat ng action buttons */
+.btn-action, .btn-archive {
+    text-decoration: none !important; /* Inaalis ang blue underline */
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+/* Design para sa Reset Password (Kulay Gray/White Translucent) */
+.btn-action {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ff3b30 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-action:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Design para sa Archive (Kulay Red Translucent) */
+.btn-archive {
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30 !important;
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.btn-archive:hover {
+    background: rgba(255, 59, 48, 0.2);
+    border-color: rgba(255, 59, 48, 0.4);
+    transform: translateY(-1px);
+}
+/* Styling para sa Restore link sa Archived Users page */
+.btn-restore {
+    text-decoration: none !important; /* Inaalis ang blue underline */
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(52, 199, 89, 0.1); /* Translucent green background */
+    color: #34c759 !important; /* Modern iOS-style green */
+    border: 1px solid rgba(52, 199, 89, 0.3);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-restore:hover {
+    background: #34c759; /* Solid green sa hover */
+    color: #ffffff !important;
+    border-color: #34c759;
+    transform: translateY(-1px); /* Bahagyang aangat sa hover */
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.2);
+}
+/* Accurate Restore Button Style */
+.btn-restore {
+    text-decoration: none !important;
+    padding: 7px 18px;
+    background: rgba(52, 199, 89, 0.1); /* Translucent Green */
+    color: #34c759 !important;
+    border: 1px solid rgba(52, 199, 89, 0.3);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-restore:hover {
+    background: #34c759;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(52, 199, 89, 0.3);
+}

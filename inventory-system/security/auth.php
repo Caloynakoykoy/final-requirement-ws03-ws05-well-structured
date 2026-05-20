@@ -1,0 +1,7 @@
+<?php
+session_start();
+function requireAuth($role){
+if(!isset($_SESSION['role'])){ header("Location: ../login.php"); exit(); }
+if($_SESSION['role']!=$role){ header("Location: ../login.php"); exit(); }
+}
+?>
